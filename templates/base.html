@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>YourTube</title>
+
+
+    <!-- Bootstrap core CSS -->
+    {% include "html_reference.html" %}
+
+    <!-- Favicons -->
+:  <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="../static/css/style.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                <i class="fa fa-cog fa-lg" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu">
+                {% if session['account'] %}
+                <h6 class="dropdown-item">{{ session['name'] }}</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Logout</a>
+                <a class="dropdown-item" href="/favorite"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp;&nbsp;Favorite</a>
+                {% else %}
+                <a class="dropdown-item" href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;Login</a>
+                {% endif %}
+            </div>
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="navbarsExample09">
+            <ul class="navbar-nav mr-auto"></ul>
+            <form class="form-inline my-2 my-md-0" action="/results">
+                <input class="form-control" type="text" name="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">search</button>
+            </form>
+        </div>
+    </nav>
+
+
+    {% block content %}
+    {% endblock %}
+</div>
+</html>

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['account'] %}
+<h5>Hello {{ session['name'] }}!</h5>
+{% else %}
+<h5>Welcome Yourtube </h5>
+{% endif %}
+{% if request.cookies %}
+<h5>cookie is {{ request.cookies.get('framework') }}</h5>
+<h5>{{ request.cookies }}</h5>
+<h5>{{ request.cookies.get('csrftoken') }}</h5>
+{% endif %}
+{% endblock %}
